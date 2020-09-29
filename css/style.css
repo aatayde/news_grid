@@ -2,8 +2,14 @@
   --primary-color: #c72727;
   --secondary-color: #f99500;
   --light-color: #f3f3f3;
-  --dark-color: #333;
+  --white: #fff;
+  --dark-color-1: #333;
+  --dark-color-2: #444;
+  --dark-color-3: #555;
   --max-width: 1100px;
+  --youtube: #c4302b;
+  --twitter: #00acee;
+  --facebook: #3b5998;
 }
 
 .category {
@@ -25,7 +31,7 @@ body {
 }
 
 a {
-  color: #333;
+  color: var(--dark-color-1);
   text-decoration: none;
 }
 
@@ -62,7 +68,7 @@ h6 {
 
 .category {
   display: inline-block;
-  color: #fff;
+  color: var(--white);
   font-size: 0.55rem;
   text-transform: uppercase;
   padding: 0.4rem 0.6rem;
@@ -83,8 +89,8 @@ h6 {
 .btn {
   display: inline-block;
   border: none;
-  background: var(--dark-color);
-  color: #fff;
+  background: var(--dark-color-1);
+  color: var(--white);
   padding: 0.5rem 1.5rem;
 }
 
@@ -92,7 +98,7 @@ h6 {
   background: var(--light-color);
 }
 .btn-primary {
-  background: var(--primary-color);
+  background: var(--primary-color) !important;
 }
 .btn-secondary {
   background: var(--secondary-color);
@@ -109,23 +115,23 @@ h6 {
 }
 
 .card {
-  background: #fff;
+  background: var(--white);
   padding: 1rem;
 }
 
 .bg-dark {
-  background: var(--dark-color);
-  color: #fff;
+  background: var(--dark-color-1);
+  color: var(--white);
 }
 
 .bg-primary {
-  background: var(--primary-color);
-  color: #fff;
+  background: var(--primary-color) !important;
+  color: var(--white);
 }
 
 .bg-secondary {
   background: var(--secondary-color);
-  color: #fff;
+  color: var(--white);
 }
 
 .bg-dark h1,
@@ -140,7 +146,7 @@ h6 {
 .bg-secondary h2,
 .bg-secondary h3,
 .bg-secondary a {
-  color: #fff;
+  color: var(--white);
 }
 
 .py-1 {
@@ -190,7 +196,7 @@ h6 {
 
 /* Navigation */
 #main-nav {
-  background: #fff;
+  background: var(--white);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -219,12 +225,12 @@ h6 {
 
 #main-nav ul li a.current {
   background: var(--primary-color);
-  color: #fff;
+  color: var(--white);
 }
 
 #main-nav ul li a:hover {
   background: var(--light-color);
-  color: var(--dark-color);
+  color: var(--dark-color-1);
 }
 
 #main-nav .social {
@@ -236,10 +242,34 @@ h6 {
   margin-right: 0.5rem;
 }
 
+/* Social links */
+#main-nav .social i.fa-facebook {
+  color: var(--facebook);
+}
+#main-nav .social i.fa-twitter {
+  color: var(--twitter);
+}
+#main-nav .social i.fa-instagram {
+  background-image: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#main-nav .social i.fa-youtube {
+  color: var(--youtube);
+}
+
 /* Showcase */
 #showcase {
-  color: #fff;
-  background: #333;
+  color: var(--white);
+  background: var(--dark-color-1);
   padding: 2rem;
   position: relative;
 }
@@ -305,8 +335,8 @@ h6 {
 
 /* Footer */
 #main-footer {
-  background: var(--dark-color);
-  color: #fff;
+  background: var(--dark-color-1);
+  color: var(--white);
 }
 
 #main-footer img {
@@ -314,7 +344,7 @@ h6 {
 }
 
 #main-footer a {
-  color: #fff;
+  color: var(--white);
 }
 
 #main-footer .footer-container {
@@ -339,4 +369,67 @@ h6 {
 
 #main-footer .footer-container input[type='submit'] {
   width: 90%;
+}
+
+/* Dark mode theme */
+@media (prefers-color-scheme: dark) {
+  /* Main backgrounds */
+  #main-nav {
+    background-color: var(--dark-color-2);
+  }
+  #article .meta,
+  body {
+    background: var(--dark-color-1);
+  }
+
+  /* Fonts */
+  /* List links */
+  h1,
+  h2,
+  h3,
+  h3 a,
+  h4,
+  h5,
+  .list li a {
+    color: var(--light-color);
+  }
+
+  /* Nav Button & email field */
+  #main-nav ul li a,
+  input,
+  .card {
+    background: var(--dark-color-2);
+    color: var(--light-color);
+  }
+
+  #main-nav .social i.fa-facebook {
+    background: radial-gradient(
+      circle at 50%,
+      #fff,
+      #fff 67%,
+      #444 67%,
+      #444 100%
+    );
+  }
+
+  /* Link backgrounds */
+  #main-nav .social i.fa-youtube {
+    color: var(--youtube);
+    background: radial-gradient(
+      circle at 50%,
+      #fff,
+      #fff 25%,
+      #444 25%,
+      #444 100%
+    );
+  }
+  #main-nav .social i.fa-youtube {
+    background: radial-gradient(
+      circle at 50%,
+      #fff,
+      #fff 25%,
+      #444 25%,
+      #444 100%
+    );
+  }
 }
